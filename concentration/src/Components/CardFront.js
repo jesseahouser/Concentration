@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Card(props) {
+export default function CardFront(props) {
 
     // When a card is clicked, it should flip face-up
     // When a second card is clicked, we compare the code (value)
