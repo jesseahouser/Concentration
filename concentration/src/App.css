@@ -14,3 +14,8 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.card-back-image{
+  width: 226px;
+  height: 314px;
+}

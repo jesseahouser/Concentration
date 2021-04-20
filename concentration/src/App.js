@@ -1,6 +1,6 @@
 import './App.css';
 import React, { Component } from 'react'
-import CardContainer from './Components/CardContainer'
+import CardContainer from './Containers/CardContainer'
 
 const cardsURL = 'https://deckofcardsapi.com/api/deck/new/draw/' // backend API URL
 const drawNumber = 4 // set the number of cards to draw from the deck
@@ -10,7 +10,8 @@ const drawNumber = 4 // set the number of cards to draw from the deck
 export default class App extends Component {
 
   state = {
-    cards: [] // array with two copies of each card drawn
+    cards: [], // array with two copies of each card drawn
+    displayFront: false
   }
 
   // To-do: randomize/shuffle cards array
@@ -37,11 +38,20 @@ export default class App extends Component {
       )
   }
 
+  // When a card is clicked, change the state of displayFront to true
+  displayCardFront = (clickedCard) => {
+    this.setState({
+      displayFront: true
+    })
+  }
+
   render() {
     return (
       <div>
         <CardContainer
           cards={this.state.cards}
+          displayFront={this.state.displayFront}
+          displayCardFront={this.displayCardFront}
         />
       </div>
     )
