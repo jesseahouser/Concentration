@@ -1,4 +1,8 @@
 .App {
   text-align: center;
+  background-color: green;
 }
 
+div {
+  background-color: green;
+}
