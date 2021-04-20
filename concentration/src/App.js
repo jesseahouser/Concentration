@@ -11,7 +11,6 @@ export default class App extends Component {
 
   state = {
     cards: [], // array with two copies of each card drawn
-    displayFront: false
   }
 
   // To-do: randomize/shuffle cards array
@@ -38,12 +37,7 @@ export default class App extends Component {
       )
   }
 
-  // When a card is clicked, change the state of displayFront to true
-  displayCardFront = (clickedCard) => {
-    this.setState({
-      displayFront: true
-    })
-  }
+  
 
   render() {
     return (

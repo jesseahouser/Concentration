@@ -1,5 +1,7 @@
 import React from 'react'
 
+const cardBackImage="https://media.gettyimages.com/vectors/playing-card-design-vector-id180001639?s=2048x2048"
+
 export default function CardBack(props) {
 
     // When a card is clicked, it should flip face-up
@@ -17,7 +19,7 @@ export default function CardBack(props) {
             <img
                 className="card-back-image"
                 onClick={handleClick}
-                src="https://media.gettyimages.com/vectors/playing-card-design-vector-id180001639?s=2048x2048"
+                src={cardBackImage}
             />
         </div>
     )

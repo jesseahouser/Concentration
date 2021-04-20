@@ -4,12 +4,12 @@ import Card from './Card'
 export default function CardContainer(props) {
 
     const displayCard = () => {
-        return props.cards.map(card => {
+        return props.cards.map((card, index) => {
             return (<Card
+                key={card.code + index}
                 card={card}
                 displayFront={props.displayFront}
                 displayCardFront={props.displayCardFront}
-                key={card.id}
             />)
         })
     }
