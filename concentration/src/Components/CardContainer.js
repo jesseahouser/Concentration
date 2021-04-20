@@ -10,7 +10,7 @@ export default function CardContainer(props) {
     }
 
     return (
-        <div>
+        <div className="card-container">
             {displayCard()}
         </div>
     )

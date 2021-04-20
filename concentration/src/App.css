@@ -1,8 +1,16 @@
+
 .App {
   text-align: center;
   background-color: green;
 }
 
-div {
+body {
   background-color: green;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }

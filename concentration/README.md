@@ -1,3 +1,19 @@
+# GAME LOGIC
+Look for a match
+Reveal one card
+Reveal a second card
+If it is a match, keep those cards static (can't flip over)
+If it is not a match, flip them over
+
+# SCORING
+Option A: Timer
+Option B: Count clicks
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
