@@ -10,8 +10,10 @@ export default function CardContainer(props) {
                 card={card}
                 card1={props.card1}
                 card2={props.card2}
+                match={props.match}
                 card1Clicked={props.card1Clicked}
                 card2Clicked={props.card2Clicked}
+                matchCheck={props.matchCheck}
             />)
         })
     }
