@@ -8,8 +8,10 @@ export default function CardContainer(props) {
             return (<Card
                 key={card.code + index}
                 card={card}
-                displayFront={props.displayFront}
-                displayCardFront={props.displayCardFront}
+                card1={props.card1}
+                card2={props.card2}
+                card1Clicked={props.card1Clicked}
+                card2Clicked={props.card2Clicked}
             />)
         })
     }

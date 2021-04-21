@@ -19,22 +19,22 @@ export default function CardBack(props) {
   //WE NEED TO PICK UP HERE
   //card2 state is not being set for some weird reason
   
-    const handleClick = () => {
-      if(props.card1) { // if a card1 has been clicked
-        props.displayCardFront(props.card) // display the front of the card2
-        props.card2Clicked(props.card) // set card2 state to the card2
-      }
-      else { // if this is the first clicked card
-        props.displayCardFront(props.card) // display the front of card1
-        props.card1Clicked(props.card) // set card1 state to card1
-      }
-    }
+    // const handleClick = () => {
+    //   if(props.card1) { // if a card1 has been clicked
+    //     props.displayCardFront(props.card) // display the front of the card2
+    //     props.card2Clicked(props.card) // set card2 state to the card2
+    //   }
+    //   else { // if this is the first clicked card
+    //     props.displayCardFront(props.card) // display the front of card1
+    //     props.card1Clicked(props.card) // set card1 state to card1
+    //   }
+    // }
 
     return (
         <div>
             <img
                 className="card-back-image"
-                onClick={handleClick}
+                // onClick={handleClick}
                 src={cardBackImage}
             />
         </div>

@@ -11,6 +11,8 @@ export default class App extends Component {
 
   state = {
     cards: [], // array with two copies of each card drawn
+    card1: [],
+    card2: []
   }
 
   // To-do: randomize/shuffle cards array
@@ -37,6 +39,14 @@ export default class App extends Component {
       )
   }
 
+  card1Clicked = (clickedCard) => {
+    this.setState({card1: clickedCard})
+  }
+
+  card2Clicked = (clickedCard) => {
+    this.setState({card2: clickedCard})
+  }
+
   
 
   render() {
@@ -44,9 +54,11 @@ export default class App extends Component {
       <div>
         <CardContainer
           cards={this.state.cards}
-          displayFront={this.state.displayFront}
-          displayCardFront={this.displayCardFront}
-        />
+          card1={this.state.card1}
+          card2={this.state.card2}
+          card1Clicked={this.card1Clicked}
+          card2Clicked={this.card2Clicked}
+          />
       </div>
     )
   }
