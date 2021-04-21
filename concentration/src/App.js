@@ -11,8 +11,8 @@ export default class App extends Component {
 
   state = {
     cards: [], // array with two copies of each card drawn
-    card1: [],
-    card2: []
+    card1: null,
+    card2: null
   }
 
   // To-do: randomize/shuffle cards array

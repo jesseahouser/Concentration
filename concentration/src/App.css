@@ -1,21 +1,31 @@
-
 .App {
   text-align: center;
-  background-color: green;
+  /* background-color: green; */
 }
-
 body {
   background-color: green;
 }
-
 .card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-
 .card-back-image{
   width: 226px;
   height: 314px;
+  margin: 10px;
+  box-shadow: 3px 3px 5px 6px rgb(2, 2, 2);
+  border-radius: 11px;
+  transition: all .2s ease-in-out;
+}
+.card-back-image:hover {
+  transform:scale(1.2);
+}
+.card-front-image{
+  width: 226px;
+  height: 314px;
+  margin: 10px;
+  box-shadow: 3px 3px 5px 6px rgb(2, 2, 2);
+  border-radius: 11px;
 }

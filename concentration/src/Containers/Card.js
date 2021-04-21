@@ -7,19 +7,15 @@ export default class Card extends Component {
    
   state = {
     displayFront: false,
-    match: []
+    match: false
   }
 
-  // When a card is clicked, it should flip face-up
+  // When a first card is clicked, it should flip face-up
   // When a second card is clicked, we compare the code (value)
   // If there is a match, both cards remain face up, and handleClick is disabled
   // If it is not a match, both cards flip face-down
-
-
-
-
   displayCard = () => {
-    if(this.state.displayFront) {
+    if(this.state.displayFront) { // check to see if we need to display the card front
       return (
         <CardFront
           card={this.props.card}
@@ -29,7 +25,7 @@ export default class Card extends Component {
         />
       )
     }
-    else {
+    else { // if we don't need to display the card front, display the card back
       return (
         <CardBack
           card={this.props.card}
@@ -44,47 +40,51 @@ export default class Card extends Component {
     }
   }
   
-  // When a card is clicked, change the state of displayFront to true
+  // Change the state of displayFront to true
   displayCardFront = () => {
     this.setState({displayFront: true})
   }
 
-  // card1Clicked = (clickedCard) => {
-  //   this.setState({card1: clickedCard})
-  // }
-
-  // card2Clicked = (clickedCard) => {
-  //   this.setState({card2: clickedCard})
-  // }
+  // MATCH LOGIC
+  // IF cards match 
+  // THEN disable click funtionality from the two cards,
+  //    change card1 and card2 state back to empty arrays,
+  //    BONUS remove/hide card1 and card2 div (hide functionality)
+  // ELSE cards do not match
+  // 2sec delay before display CardBack
+  // Change card1 anbd card2 state back to empty arrays
+  matchCheck = (card2Code) => {
+    if(this.props.card1 === card2Code) {
+      console.log("is a match, card1:", this.props.card1, ", card2:", card2Code)
+      // we need to set the match state of card1 AND card 2 to true...how dow we do that?
+      
+      //this.setState({match: true})
+    }
+    else {
+      console.log("not a match, card1:", this.props.card1, ", card2:", card2Code)
+    }
+  }
 
   handleClick = () => {
-    if(this.props.card1.length === 0) { // if a card1 has been clicked 
+    if(this.props.card1 === null) { // if a card1 has not been clicked 
         this.displayCardFront(this.props.card) // display the front of card1
-        this.props.card1Clicked(this.props.card.code) // set card1 state to card1
+        this.props.card1Clicked(this.props.card.code) // set card1 state to card1 code
     } 
-     else { // if this is the first clicked card
+     else { // if this is the second card clicked
         this.displayCardFront(this.props.card) // display the front of the card2
         this.props.card2Clicked(this.props.card.code) // set card2 state to the card2
-      // MATCH: card1 === card2 
-      // remove Click feature from card1 and card2
-      //// remove card1 / card2 div (hide functionality) BONUS
-      // this.state.card1/2 === []
-
-      // NO MATCH: card1 !== card2 -> this.state.card1 this.state.card2 === []
-      // 2sec delay before displayBack
-
+        this.matchCheck(this.props.card.code)
+        // setTimeout(console.log(this.props.card2), 2000)
+        // console.log(this.props.card1)
+        // console.log(this.props.card2)
     }
   }
-    // Display logic
-    // First render CardBack
-    // If clicked, render CardFront
-    render(){
-      return (
-          <div onClick={this.handleClick}>
-             
-              {this.displayCard()}
-             
-          </div>
-      )
-    }
+
+  render(){
+    return (
+        <div onClick={this.handleClick}>
+            {this.displayCard()}
+        </div>
+    )
   }
+}
