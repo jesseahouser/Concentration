@@ -9,6 +9,7 @@ export default function CardBack(props) {
             <img
                 className="card-back-image"
                 src={cardBackImage}
+                onClick={props.clickCardBack}
             />
         </div>
     )
