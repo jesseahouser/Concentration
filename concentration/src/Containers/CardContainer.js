@@ -12,6 +12,7 @@ export default function CardContainer(props) {
                 card={card}
                 card1={props.card1}
                 matchCards={props.matchCards}
+                incrementClickCounter={props.incrementClickCounter}
                 card1Clicked={props.card1Clicked}
                 card2Clicked={props.card2Clicked}
                 isMatch={props.isMatch}

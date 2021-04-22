@@ -9,19 +9,11 @@ export default class Card extends Component {
     displayFront: false,
   }
   
+  // Runs when props or state changes
   componentDidUpdate(previousProps, previousState) {
-    // check previous props of matched array in app level state
-    // previousProps.matchCards.length !== this.props.matchCards.length
-    // previousProps.isMatch !== this.props.isMatch
-
-    if(!this.props.card1 && previousProps.card1){ // checks to see if the turn is over
-      this.checkForMatch()
-      console.log("card 1 exists")
+    if(!this.props.card1 && previousProps.card1){ // checks to see if the turn is over (card1 is currently empty and previously card1 had a code)
+      this.checkForMatch() // check to see if the card is in the match array
     }
-    
-    // if(previousState.displayFront !== this.state.displayFront){
-    //   this.checkForMatch()
-    // }
   }  
 
   // Display either the front or the back of the card
@@ -46,17 +38,18 @@ export default class Card extends Component {
   displayCardFront = () => {
     this.setState({displayFront: true})
   }
-
+  
+  // Check to see if the cards are in the match array
   checkForMatch = () => {
-    const isMatched = this.props.matchCards.find(code => code === this.props.card.code)
+    const isMatched = this.props.matchCards.find(code => code === this.props.card.code) // search through the matched cards to see if the card matches any of them
     if(!isMatched) {
-      console.log("is not matched")
-      this.setState({displayFront: false})
+      setTimeout(() => {this.setState({displayFront: false})}, 250) // if it is not in the matched cards array, don't display the front of the card
     }
   }
 
   // Invokes when a card back is clicked
   cardBackClick = () => {
+    this.props.incrementClickCounter()
     if(this.props.card1 === null) { // if a card1 has not been clicked
         this.displayCardFront(this.props.card) // display the front of card1
         this.props.card1Clicked(this.props.card.code) // set card1 state to card1 code
