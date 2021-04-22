@@ -27,21 +27,20 @@ export default class Card extends Component {
     }
   }
   
-  // NOT BEING USED YET
-  isMatched = () => {
-    if(this.props.match.filter(code => code === this.props.card.code)) {
-      return(null)// this.setState({displayFront: true})
-    }
-    else {
-      this.setState({displayFront: false})
-    }
-
-  }
-
   // Change the state of displayFront to true
   displayCardFront = () => {
     this.setState({displayFront: true})
   }
+
+  // // NOT BEING USED YET
+  // isMatched = () => {
+  //   if(this.props.matchCards.filter(code => code === this.props.card.code)) {
+  //     return(null)// this.setState({displayFront: true})
+  //   }
+  //   else {
+  //     this.setState({displayFront: false})
+  //   }
+  // }
 
   // Invokes when a card back is clicked
   cardBackClick = () => {
@@ -53,7 +52,7 @@ export default class Card extends Component {
      else { // if this is the second card clicked
         this.displayCardFront(this.props.card) // display the front of the card2
         this.props.card2Clicked(this.props.card.code) // set card2 state to the card2 MIGHT NOT NEED
-        this.props.matchCheck(this.props.card.code) // checks for a match with card1
+        this.props.isMatch(this.props.card.code) // checks for a match with card1
     }
   }
 

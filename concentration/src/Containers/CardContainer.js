@@ -3,6 +3,8 @@ import Card from './Card'
 
 export default function CardContainer(props) {
 
+
+
     const displayCard = () => {
         return props.cards.map((card, index) => {
             return (<Card
@@ -10,10 +12,10 @@ export default function CardContainer(props) {
                 card={card}
                 card1={props.card1}
                 card2={props.card2}
-                match={props.match}
+                matchCards={props.matchCards}
                 card1Clicked={props.card1Clicked}
                 card2Clicked={props.card2Clicked}
-                matchCheck={props.matchCheck}
+                isMatch={props.isMatch}
             />)
         })
     }
