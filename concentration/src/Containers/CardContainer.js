@@ -11,11 +11,11 @@ export default function CardContainer(props) {
                 key={card.code + index}
                 card={card}
                 card1={props.card1}
-                card2={props.card2}
                 matchCards={props.matchCards}
                 card1Clicked={props.card1Clicked}
                 card2Clicked={props.card2Clicked}
                 isMatch={props.isMatch}
+                checkForMatch={props.checkForMatch}
             />)
         })
     }

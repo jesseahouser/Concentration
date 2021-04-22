@@ -13,6 +13,7 @@ export default class App extends Component {
     cards: [], // array with two copies of each card drawn
     card1: null,
     matchCards: [],
+    isMatch: false
   }
 
   // To-do: randomize/shuffle cards array
@@ -50,20 +51,23 @@ export default class App extends Component {
   }
 
   card2Clicked = (clickedCard) => {
-    this.setState({card2: clickedCard})
+    //this.setState({card2: clickedCard})
   }
 
-  isMatch = (card2Clicked) => {
+  checkForMatch = (card2Clicked) => {
     if(this.state.card1 === card2Clicked) {
       console.log("is a match, card1:", this.state.card1, ", card2:", card2Clicked)
       // this.setState({isMatched: true})
-      this.setState({matchCards: [...this.state.matchCards, this.state.card1, card2Clicked]})
-      this.setState({card1: null})
+      this.setState({
+        matchCards: [...this.state.matchCards, this.state.card1, card2Clicked],
+        card1: null,
+        isMatch: true
+      })
     }
     else {
       console.log("not a match, card1:", this.state.card1, ", card2:", card2Clicked)
-      this.setState({card1: null})
-      // run displayBack on card1 and card2Clicked
+      this.setState({card1: null, isMatch: false})
+      // change state of card1 and card2Clicked displayFront: false
     }
   }
 
@@ -74,10 +78,11 @@ export default class App extends Component {
           cards={this.state.cards}
           card1={this.state.card1}
           card2={this.state.card2}
+          isMatch={this.state.isMatch}
           matchCards={this.state.matchCards}
           card1Clicked={this.card1Clicked}
           card2Clicked={this.card2Clicked}
-          isMatch={this.isMatch}
+          checkForMatch={this.checkForMatch}
           />
       </div>
     )

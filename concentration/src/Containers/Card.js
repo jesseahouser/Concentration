@@ -8,6 +8,21 @@ export default class Card extends Component {
   state = {
     displayFront: false,
   }
+  
+  componentDidUpdate(previousProps, previousState) {
+    // check previous props of matched array in app level state
+    // previousProps.matchCards.length !== this.props.matchCards.length
+    // previousProps.isMatch !== this.props.isMatch
+
+    if(!this.props.card1 && previousProps.card1){ // checks to see if the turn is over
+      this.checkForMatch()
+      console.log("card 1 exists")
+    }
+    
+    // if(previousState.displayFront !== this.state.displayFront){
+    //   this.checkForMatch()
+    // }
+  }  
 
   // Display either the front or the back of the card
   displayCard = () => {
@@ -32,19 +47,16 @@ export default class Card extends Component {
     this.setState({displayFront: true})
   }
 
-  // // NOT BEING USED YET
-  // isMatched = () => {
-  //   if(this.props.matchCards.filter(code => code === this.props.card.code)) {
-  //     return(null)// this.setState({displayFront: true})
-  //   }
-  //   else {
-  //     this.setState({displayFront: false})
-  //   }
-  // }
+  checkForMatch = () => {
+    const isMatched = this.props.matchCards.find(code => code === this.props.card.code)
+    if(!isMatched) {
+      console.log("is not matched")
+      this.setState({displayFront: false})
+    }
+  }
 
   // Invokes when a card back is clicked
   cardBackClick = () => {
-    // Check to see if card has already been matched
     if(this.props.card1 === null) { // if a card1 has not been clicked
         this.displayCardFront(this.props.card) // display the front of card1
         this.props.card1Clicked(this.props.card.code) // set card1 state to card1 code
@@ -52,7 +64,7 @@ export default class Card extends Component {
      else { // if this is the second card clicked
         this.displayCardFront(this.props.card) // display the front of the card2
         this.props.card2Clicked(this.props.card.code) // set card2 state to the card2 MIGHT NOT NEED
-        this.props.isMatch(this.props.card.code) // checks for a match with card1
+        this.props.checkForMatch(this.props.card.code) // checks for a match with card1
     }
   }
 
