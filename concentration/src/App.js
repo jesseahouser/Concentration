@@ -19,19 +19,20 @@ export default class App extends Component {
   }
 
   // To-do: randomize/shuffle cards array
-  // function shuffleCards(cards){ // takes an array of cards as an argument
-  //   let array = []
-  //   let newArray = []
-  //   for(i=0; i < 104; i++){ // creates an array with 104 values from 0 to 103
-  //       newArray.push(i)
-  //   }
-  //   while(newArray.length > 0){ // iterate 102 times
-  //     let index = Math.floor(Math.random() * newArray.length) // multiplying array length by a random number between 0 and 9
-  //     array.push(newArray[index]) // push that value into the array, probably need to use the cards array coming in as argument
-  //     newArray = newArray.slice(0, index).concat(newArray.slice(index+1)) //
-  //   }
-  //   console.log(array)
-  // }
+  shuffleCards(unShuffledArray) { // takes an array of cards as an argument
+    // let unShuffledArray = []
+    let shuffledArray = []
+    // for(i=0; i < 104; i++){ // creates an array with 104 values from 0 to 103
+    //     shuffledArray.push(i)
+    // }
+    while(unShuffledArray.length > 0){ // iterate 102 times
+      let index = Math.floor(Math.random() * unShuffledArray.length) // multiplying array length by a random number between 0 and 9
+      shuffledArray.push(unShuffledArray[index]) // push that value into the array, probably need to use the cards array coming in as argument
+      unShuffledArray = unShuffledArray.slice(0, index).concat(unShuffledArray.slice(index+1)) //
+    }
+    return (
+      this.setState({ cards: shuffledArray}))
+  }
 
   componentDidMount() {
     fetch(cardsURL +  "?count=" + drawNumber) // draw cards (GET) from the backend
@@ -41,9 +42,10 @@ export default class App extends Component {
         // drawCards.cards.map(card => {
         //   card.isMatched=false
         // })
-        this.setState({ // set state
-            cards: drawCards.cards.concat(drawCards.cards) // joins two arrays of cards that are drawn
-        })
+        this.shuffleCards(drawCards.cards.concat(drawCards.cards))
+        // this.setState({ // set state
+        //     cards: drawCards.cards.concat(drawCards.cards) // joins two arrays of cards that are drawn
+        // })
       } 
     )
   }
