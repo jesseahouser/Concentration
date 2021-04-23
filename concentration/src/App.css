@@ -55,16 +55,22 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   transform: rotateY(1080deg);
 }
 
-
-
-.score {
+.score, h1, h2{
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
+  font-family: 'Bangers', cursive;
   text-shadow:
     -1px -1px 0 #000,  
      1px -1px 0 #000,
     -1px 1px 0 #000,
      1px 1px 0 #000;
+}
+
+h1 {
+  font-size: 48px;
+}
+h2 {
+  font-size: 28px;
 }

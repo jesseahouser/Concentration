@@ -43,7 +43,7 @@ export default class Card extends Component {
   checkForMatch = () => {
     const isMatched = this.props.matchCards.find(code => code === this.props.card.code) // search through the matched cards to see if the card matches any of them
     if(!isMatched) {
-      setTimeout(() => {this.setState({displayFront: false})}, 250) // if it is not in the matched cards array, don't display the front of the card
+      setTimeout(() => {this.setState({displayFront: false})}, 1000) // if it is not in the matched cards array, don't display the front of the card
     }
   }
 

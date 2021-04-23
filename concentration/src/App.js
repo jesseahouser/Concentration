@@ -4,7 +4,7 @@ import CardContainer from './Containers/CardContainer'
 import Score from './Components/Score'
 
 const cardsURL = 'https://deckofcardsapi.com/api/deck/new/draw/' // backend API URL
-const drawNumber = 4 // set the number of cards to draw from the deck
+const drawNumber = 7 // set the number of cards to draw from the deck
 
 
 // class component with state
@@ -88,7 +88,8 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Score clickCounter={this.state.clickCounter} />
+        <h1>MEMORY GAME</h1>
+        <h2>Try to find all the matching cards in the least amount of clicks!!</h2>
         <CardContainer
           cards={this.state.cards}
           card1={this.state.card1}
@@ -100,6 +101,7 @@ export default class App extends Component {
           card2Clicked={this.card2Clicked}
           checkForMatch={this.checkForMatch}
           />
+        <Score clickCounter={this.state.clickCounter} />
       </div>
     )
   }
