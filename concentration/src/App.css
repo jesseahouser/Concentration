@@ -26,18 +26,16 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   background-image: url("http://getdrawings.com/vectors/playing-card-back-vector-13.jpg");
   box-shadow: 3px 3px 5px 6px rgb(2, 2, 2);
   border-radius: 11px;
-  transition: all .2s ease-in-out;
+  transition: all .2s ease-out;
 }
 
-.card-back-image img {
-}
 
 .card-back-image:hover {
   transform:scale(1.2);
 }
 
 .card-back-image:active {
-  transform: rotateY(180deg)
+  /* transform: rotateY(180deg) */
 }
 
 .card-front-image{
@@ -46,13 +44,13 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   margin: 10px;
   box-shadow: 3px 3px 5px 6px rgb(2, 2, 2);
   border-radius: 11px;
-  transition: all .2s ease-in-out;
+  /* transition: all .2s ease-in-out; */
 }
 
 .card-front-image:hover {
-  transition: all .2s ease-in-out;
-  transform: scale(1.2);
-  transform: rotateY(360deg);
+  /* transition: all .2s ease-in-out; */
+  /* transform: scale(1.2); */
+  /* transform: rotateY(360deg); */
 }
 
 .score, h1, h2{
